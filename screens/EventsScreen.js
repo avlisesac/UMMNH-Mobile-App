@@ -86,16 +86,17 @@ const EventsScreen = () => {
   }, [requestedDate])
 
   const renderItem = ({item}) => {
+    console.log(item[1])
     const title = (item[1].combined_title.length > 50) ? item[1].combined_title.slice(0, 50) + '...' : item[1].combined_title;;
     const startTime = moment(item[1].time_start, 'HH:mm:ss').format('h:mm A');
     const endTime = moment(item[1].time_end, 'HH:mm:ss').format('h:mm A');
     const description = (item[1].description.length > 140) ? item[1].description.slice(0, 140) + '...' : item[1].description;;
     const eventLink = item[1].permalink;
-    const imageThumb = item[1].styled_images.event_thumb ? item[1].styled_images.event_thumb : 'none'
+    const imageThumb = item[1].styled_images.event_list ? item[1].styled_images.event_list : 'none'
 
     return(
       <ListItem onPress={() => Linking.openURL(eventLink)} bottomDivider>
-        <Avatar rounded source={{uri: imageThumb}} />
+        <Avatar size="large" source={{uri: imageThumb}} />
         <ListItem.Content>
           <ListItem.Title style={styles.itemTitle}>{title}</ListItem.Title>
           <ListItem.Subtitle style={styles.itemTime}>{startTime + '-' + endTime}</ListItem.Subtitle>
@@ -122,40 +123,43 @@ const EventsScreen = () => {
       </View>
     )
   }
+
   return(
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
       <View style={styles.header}>
+        <TouchableOpacity onPress={()=> showDatePicker()}>
+          <Text h4 style={styles.date}>{dateForDisplay(requestedDate)}</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={()=> showDatePicker()}>
-        <Text h4 style={styles.date}>{dateForDisplay(requestedDate)}</Text>
-      </TouchableOpacity>
+        { moment(requestedDate).format('MMMM D YYYY') !== moment().format('MMMM D YYYY') &&
+          <View style={styles.returnButtonWrapper}>
+            <TouchableOpacity onPress={() => setRequestedDate(moment())}>
+              <Text style={styles.returnButtonText}>(Return to Today)</Text>
+            </TouchableOpacity>
+          </View>
+        }
 
-      { moment(requestedDate).format('MMMM D YYYY') !== moment().format('MMMM D YYYY') &&
-        <View style={styles.returnButtonWrapper}>
-          <TouchableOpacity onPress={() => setRequestedDate(moment())}>
-            <Text style={styles.returnButtonText}>(Return to Today)</Text>
-          </TouchableOpacity>
-        </View>
-      }
-
-      <DateTimePickerModal
-        isVisible={datePickerVisible}
-        mode="date"
-        onConfirm={handleConfirm}
-        onCancel={handleCancel}
-        date={requestedDate.toDate()}
-      />
-
-
-
+        <DateTimePickerModal
+          isVisible={datePickerVisible}
+          mode="date"
+          onConfirm={handleConfirm}
+          onCancel={handleCancel}
+          date={requestedDate.toDate()}
+        />
       </View>
 
-      <FlatList
-        data={events}
-        keyExtractor={item => item[0]}
-        renderItem={renderItem}
-      />
-
+      { events.length < 1 &&
+        <View style={styles.loadingContainer}>
+          <Text h4 style={styles.noEvents}>No events today! Try selecting another date above to plan ahead for next time.</Text>
+        </View>
+      }
+      { events.length > 0 &&
+        <FlatList
+          data={events}
+          keyExtractor={item => item[0]}
+          renderItem={renderItem}
+        />
+      }
     </SafeAreaView>
   )
 }
@@ -168,6 +172,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  noEvents:{
+    padding: 20,
+    fontFamily: 'Whitney-Semibold'
   },
   date: {
     textAlign: 'center',

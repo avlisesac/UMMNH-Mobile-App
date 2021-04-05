@@ -13,9 +13,9 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.whiteBG}>
           <View style={styles.innerContainer}>
             <View style={styles.messageContainer}>
-            <Text h3 style={styles.welcomeText}>Welcome to the</Text>
-            <Text h2 style={styles.welcomeText}>University of Michigan</Text>
-            <Text h1 style={styles.welcomeText}>Michigan Museum of Natural History</Text>
+            <Text style={[styles.welcomeText, styles.large]}>Welcome to the</Text>
+            <Text style={[styles.welcomeText, styles.medium]}>University of Michigan</Text>
+            <Text style={[styles.welcomeText, styles.small]}>Museum of Natural History</Text>
             </View>
 
             <View style={styles.buttonContainer}>
@@ -47,8 +47,7 @@ const styles = StyleSheet.create({
   },
   whiteBG: {
     flex: 1,
-    marginTop: 10,
-    marginBottom: 10,
+    width: '100%',
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
   },
   innerContainer:{
@@ -59,7 +58,16 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontFamily: 'Whitney-Black',
     color: colors.lightBlue,
-  }
+  },
+  large: {
+    fontSize: 36
+  },
+  medium: {
+    fontSize: 32
+  },
+  small: {
+    fontSize: 28
+  },
 });
 
 export default HomeScreen;
