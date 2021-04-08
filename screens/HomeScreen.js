@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground } from 'react-native';
-import { Text } from 'react-native-elements'
+import { StyleSheet, View, ImageBackground, Text } from 'react-native';
+// import { Text } from 'react-native-elements'
 import Button from '../components/Button'
 import colors from '../assets/colors'
 
@@ -13,9 +13,9 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.whiteBG}>
           <View style={styles.innerContainer}>
             <View style={styles.messageContainer}>
-            <Text style={[styles.welcomeText, styles.large]}>Welcome to the</Text>
-            <Text style={[styles.welcomeText, styles.medium]}>University of Michigan</Text>
-            <Text style={[styles.welcomeText, styles.small]}>Museum of Natural History</Text>
+            <Text adjustsFontSizeToFit numberOfLines={1} style={[styles.welcomeText, styles.large]}>Welcome to the</Text>
+            <Text adjustsFontSizeToFit numberOfLines={1} style={[styles.welcomeText, styles.medium]}>University of Michigan</Text>
+            <Text adjustsFontSizeToFit numberOfLines={1} style={[styles.welcomeText, styles.small]}>Museum of Natural History</Text>
             </View>
 
             <View style={styles.buttonContainer}>
@@ -60,13 +60,13 @@ const styles = StyleSheet.create({
     color: colors.lightBlue,
   },
   large: {
-    fontSize: 36
+    fontSize: 100
   },
   medium: {
-    fontSize: 32
+    fontSize: 80
   },
   small: {
-    fontSize: 28
+    fontSize: 60
   },
 });
 

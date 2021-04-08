@@ -1,7 +1,8 @@
 export default {
   heroImage: require('../images/hero/mastodons.jpg'),
   heroImageAlt:'Two mastodon skeletons on display in the atrium of the museum.',
-  audioFile: require('../audio/test.m4a'),
+  audioFile: require('../audio/doli.mp3'),
+  location: '1st Floor',
   title: 'The Mastodons',
   subtitle: 'Ancient Herbivores',
   blurb: 'Foraging through woodlands and forests, the American Mastodon (*M. americanum*) spread throughout North America feeding on the limbs of conifers and low growing vegetation. While the size and strength of these creatures was enough to keep all but the smallest of them safe from most predators, perhaps their biggest threat came in the form of early humans...',

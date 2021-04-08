@@ -2,9 +2,11 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import ExhibitsScreen from '../screens/ExhibitsScreen';
 import ExhibitScreen from '../screens/ExhibitScreen';
+import GalleryModal from '../components/GalleryModal';
 import colors from '../assets/colors'
 
 const ExhibitsStackNavigator = createStackNavigator();
+const ModalStackNavigator = createStackNavigator();
 
 const ExhibitsStack = ({ navigation }) => {
   return(
@@ -22,4 +24,17 @@ const ExhibitsStack = ({ navigation }) => {
   )
 }
 
-export default ExhibitsStack;
+const ModalStack = ({navigation}) => {
+  return(
+    <ModalStackNavigator.Navigator headerMode="none">
+      <ModalStackNavigator.Screen
+        name="Main"
+        component={ExhibitsStack}
+        options={{headerShown: false}}
+      />
+      <ModalStackNavigator.Screen name="Gallery" component={GalleryModal} />
+    </ModalStackNavigator.Navigator>
+  )
+}
+
+export default ModalStack;

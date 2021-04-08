@@ -1,66 +1,49 @@
 import React from 'react'
-import { Image, Modal, StyleSheet, View } from 'react-native'
+import { Image, Modal, SafeAreaView, StyleSheet, View } from 'react-native'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import CustomText from './CustomText'
 import Button from './Button'
 
 const Tab = createMaterialTopTabNavigator();
 
-const GalleryModal = ({modalVisible, setModalVisible, galleryContent}) => (
-  <Modal
-  animationType="slide"
-  transparent={true}
-  visible={modalVisible}
-  onRequestClose={() => {setModalVisible(!modalVisible)}}
-  >
-    <View style={styles.centeredView}>
-      <View style={styles.modalView}>
-        <Tab.Navigator
-          swipeEnabled={true}
-        >
-          {
-            galleryContent.map((item, index) => {
-              const GalleryItem = () => (
-                <View style={styles.galleryItem}>
-                  <View style={styles.galleryImageWrapper}>
-                    <Image source={item.imageFile} style={styles.galleryImage}/>
-                  </View>
-                  <CustomText>{item.imageDescription}</CustomText>
-                </View>
-              )
-              return(
-                <Tab.Screen key={index} name={`${index + 1}`} component={GalleryItem} />
-              )
-            })
-          }
-        </Tab.Navigator>
+const GalleryModal = ({route, navigation}) => {
+  const { galleryContent } = route.params
 
-        <View>
-          <Button onPress={() => setModalVisible(!modalVisible)}>Close Gallery</Button>
+  return(
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.mainContainer}>
+        <Tab.Navigator>
+        {
+          galleryContent.map((item, index) => {
+            const GalleryItem = () => (
+              <View style={styles.galleryItem}>
+              <View style={styles.galleryImageWrapper}>
+              <Image source={item.imageFile} style={styles.galleryImage}/>
+              </View>
+              <CustomText>{item.imageDescription}</CustomText>
+              </View>
+            )
+            return(
+              <Tab.Screen key={index} name={`${index + 1}`} component={GalleryItem} />
+            )
+          })
+        }
+        </Tab.Navigator>
+        <View style={styles.buttonWrapper}>
+          <Button onPress={() => navigation.goBack()}>Close Gallery</Button>
         </View>
       </View>
-    </View>
-  </Modal>
+    </SafeAreaView>
 )
+}
 
 const styles = StyleSheet.create({
-  centeredView:{
-    flex: 1,
+  safeArea: {
+    flex: 1
   },
-  modalView: {
+  mainContainer: {
     flex: 1,
-    margin: 20,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 20,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    margin: 10
   },
   galleryItem: {
     flex: 1,

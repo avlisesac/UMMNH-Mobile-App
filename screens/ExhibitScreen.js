@@ -18,18 +18,21 @@ import TLAS from '../components/TLAS'
 import WhileYoureHere from '../components/WhileYoureHere'
 import colors from '../assets/colors'
 
-const ExhibitScreen = ({route, navigation}) => {
-  const {item} = route.params;
+const ExhibitScreen = ({route, navigation, children}) => {
+  const {item, nextScreen} = route.params;
+
   const [fullTextVisible, setFullTextVisible] = useState(false)
   const [modalVisible, setModalVisible] = useState(false)
 
   return(
     <SafeAreaView style={{flex: 1}}>
+    {/*
       <GalleryModal
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-        galleryContent={item.gallery}
+      modalVisible={modalVisible}
+      setModalVisible={setModalVisible}
+      galleryContent={item.gallery}
       />
+    */}
       <ScrollView style={styles.mainContainer}>
 
         {/* Header/Jumbotron */}
@@ -42,7 +45,11 @@ const ExhibitScreen = ({route, navigation}) => {
             accessibilityRole={"image"}
           >
           <View style={styles.imageGalleryButtonWrapper}>
-            <Button onPress={() => setModalVisible(true)}>Image Gallery</Button>
+            <Button onPress={() => navigation.navigate('Gallery', {
+              galleryContent: item.gallery
+            })}>
+              Image Gallery
+            </Button>
           </View>
           </ImageBackground>
         </View>
@@ -57,6 +64,7 @@ const ExhibitScreen = ({route, navigation}) => {
 
         {/* Audio Player */}
         <AudioPlayer
+          navigation={navigation}
           fullTextVisible={fullTextVisible}
           setFullTextVisible={setFullTextVisible}
           item={item}
@@ -73,6 +81,12 @@ const ExhibitScreen = ({route, navigation}) => {
 
         {/* While You're Here */}
         <WhileYoureHere item={item} />
+
+        { nextScreen &&
+          <View style={styles.nextButtonWrapper}>
+            <Button onPress={() => navigation.navigate(nextScreen)}>Next Stop!</Button>
+          </View>
+        }
 
       </ScrollView>
     </SafeAreaView>
@@ -113,6 +127,10 @@ const styles = StyleSheet.create({
   },
   fullText: {
     marginTop: 5,
+  },
+  nextButtonWrapper: {
+    marginTop: 20,
+    marginBottom: 20
   },
 })
 

@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-elements'
+import { useFocusEffect,
+} from '@react-navigation/native';
 import { Audio } from 'expo-av'
 import Button from './Button'
 import colors from '../assets/colors'
 
-const AudioPlayer = ({fullTextVisible, setFullTextVisible, item}) => {
+const AudioPlayer = ({navigation, fullTextVisible, setFullTextVisible, item}) => {
   const [playState, setPlayState] = useState(false)
   const [sound, setSound] = useState()
 
@@ -17,12 +19,15 @@ const AudioPlayer = ({fullTextVisible, setFullTextVisible, item}) => {
   }
 
   useEffect(() => {
-    return sound
-      ? () => {
-        console.log('unloading sound')
+    const unsubscribe = navigation.addListener('blur', () => {
+      if(sound){
+        setPlayState(false)
         sound.unloadAsync()
-      } : undefined
-  }, [sound])
+      } else {
+      }
+    })
+    return unsubscribe
+  }, [navigation, sound])
 
   const handleChange = async () => {
     switch(playState){
