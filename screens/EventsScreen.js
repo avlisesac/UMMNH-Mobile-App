@@ -12,6 +12,7 @@ import {
 import { Avatar, List, ListItem, Text } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons';
 import DateTimePickerModal from 'react-native-modal-datetime-picker'
+import Button from '../components/Button'
 
 import moment from 'moment'
 import colors from '../assets/colors'
@@ -43,6 +44,7 @@ const EventsScreen = () => {
 
   const fetchEvents = async () => {
     setIsLoading(true)
+    setError(null)
     const dateString = returnDateForRequest(requestedDate)
 
     // Production museum URL
@@ -60,7 +62,6 @@ const EventsScreen = () => {
 
     } catch (error) {
       setError(error)
-      console.log(error)
     }
   }
 
@@ -86,7 +87,6 @@ const EventsScreen = () => {
   }, [requestedDate])
 
   const renderItem = ({item}) => {
-    console.log(item[1])
     const title = (item[1].combined_title.length > 50) ? item[1].combined_title.slice(0, 50) + '...' : item[1].combined_title;;
     const startTime = moment(item[1].time_start, 'HH:mm:ss').format('h:mm A');
     const endTime = moment(item[1].time_end, 'HH:mm:ss').format('h:mm A');
@@ -109,9 +109,12 @@ const EventsScreen = () => {
 
   if(error){
     return(
-      <View>
-        <Text>Error fetching events!</Text>
-        <Text>{error.toString()}</Text>
+      <View style={styles.loadingContainer}>
+        <Text style={styles.errorTitle}>Error fetching events!</Text>
+        <Text>Please ensure that you have an active internet connection and...</Text>
+        <View style={styles.buttonWrapper}>
+          <Button onPress={() => fetchEvents()}>Try Again</Button>
+        </View>
       </View>
     )
   }
@@ -169,6 +172,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   loadingContainer: {
+    margin: 10,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -199,7 +203,15 @@ const styles = StyleSheet.create({
   return : {
     color: colors.lightBlue,
     textAlign: 'center'
-  }
+  },
+  errorTitle:{
+    fontFamily: "Whitney-Semibold",
+    fontSize: 22
+  },
+  buttonWrapper: {
+    width: '100%',
+    marginTop: 20,
+  },
 })
 
 export default EventsScreen
