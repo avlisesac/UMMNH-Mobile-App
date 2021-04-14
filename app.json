@@ -26,6 +26,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#00b6f1",
       },
+      "package": "edu.umich.UMMNHAndroid",
       "versionCode": 3
     },
     "web": {
