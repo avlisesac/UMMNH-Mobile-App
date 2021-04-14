@@ -1,21 +1,23 @@
 export default {
   heroImage: require('../images/hero/mammoth.jpg'),
   heroImageAlt:`Picture of the Bristle Mammoth skull in its display case.`,
-  audioFile: require('../audio/test.m4a'),
+  audioFile: require('../audio/mammoth.mp3'),
   location: 'Lower Level',
   title: 'Bristle Mammoth',
   subtitle: 'Hometown Hero',
   blurb: `Hailing from Chelsea, Michigan, the Bristle Mammoth was unearthed in 2015 on the Bristle farm. The Bristle Mammoth is an exciting specimen of a Jeffersonian mammoth (*M. jeffersonii*), a hybrid species of the northern woolly mammoth and the southern Columbian mammoth. It originally measured about 13 feet tall and weighed nearly 8 tons! Though large and imposing with its giant, curved tusks, this mammoth was an herbivore and spent much of its time grazing.`,
-  fullText: `Mammoths came to North America from Asia, across the Bering land bridge. Jeffersonian mammoths like this one had thick, protective hair, similar to woolly mammoths. They used their large tusks for fighting, as well as to help forage for food.
+  fullText: `Mammoths came to North America from Asia, across the Bering land bridge. Jeffersonian mammoths, like this one, likely had thick, protective hair, similar to woolly mammoths. They used their large tusks for fighting, as well as to help forage for food.
 
 The Bristle Mammoth’s primary habitat was quite cold and arid. They grazed on the grasses and sedges that grew in cold environments. Mammoths used their tusks to move snow and other objects in order to find more food.
 
-So what caused the extinction of mammoths? Scientists have several ideas. Like the American mastodon, it is proposed that environmental factors leading to food loss combined with being over-hunted by early humans were the leading causes of the extinction of the mammoth.
+So what caused the extinction of mammoths? Scientists have several ideas. Some researchers propose that environmental factors led to food loss. Another theory is that early humans over-hunted mammoths.
+
+How much can you dig up in a day? Due to the schedule on the farm where the bones were found, scientists from the University of Michigan had only a single day to excavate these fossils!
 `,
   tlas: [
     {
       q: `Check out the exhibit to find what the significance might be of the large stones that were found near different parts of the Bristle mammoth. What were they for?`,
-      a: `Early humans may have used these stones to weigh down pieces of the mammoth and keep them submerged in cold water. This practice kept the meat from spoiling or being taken by scavengers.`
+      a: `Early humans may have used these stones to weigh down pieces of the mammoth and keep them submerged in cold water. This practice kept the meat from spoiling or being taken by scavengers. Early people may also have used stones to break through ice in the Spring.`
     },
     {
       q: `Looking at the skull, can you spot any indication of conflict with other mammoths?`,
@@ -23,7 +25,7 @@ So what caused the extinction of mammoths? Scientists have several ideas. Like t
     },
     {
       q: `Bristle did not die of natural causes. What do you think his cause of death was?`,
-      a: `While Bristle survived the injury to his skull, it is thought that he was felled during a conflict much later. Pit marks along the tusk are fresh and do not show any healing. This leads us to believe he died during the conflict that left the pitting.`
+      a: `While Bristle survived the injury to his skull, researchers think that he was felled during a conflict much later. Pit marks along the tusk are fresh and do not show any healing. This leads us to believe he died during the conflict that left the pitting.`
     }
   ],
 

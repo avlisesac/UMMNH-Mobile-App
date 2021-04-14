@@ -19,18 +19,17 @@
     "ios": {
       "supportsTablet": true,
       "buildNumber": "3.0.0",
+      "bundleIdentifier": "edu.umich.UMMNHiOS",
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#00b6f1",
-        "versionCode": "3"
-      }
+      },
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "bundleIdentifier": "edu.umich.UMMNHiOS",
-
   }
 }

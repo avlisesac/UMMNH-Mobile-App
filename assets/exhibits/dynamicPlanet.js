@@ -1,7 +1,7 @@
 export default {
   heroImage: require('../images/hero/dynamicplanet.jpg'),
   heroImageAlt:`Picture of a visitor standing in front of the Dynamic Planet exhibit.`,
-  audioFile: require('../audio/test.m4a'),
+  audioFile: require('../audio/dynamicplanet.mp3'),
   location: '2nd Floor',
   title: 'Dynamic Planet',
   subtitle: 'Our Changing Earth',

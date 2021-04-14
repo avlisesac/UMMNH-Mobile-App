@@ -1,16 +1,16 @@
 export default {
   heroImage: require('../images/hero/majungasaurus.jpg'),
   heroImageAlt:`Close up shot of the upper half of the Majungasaurus skeleton.`,
-  audioFile: require('../audio/test.m4a'),
+  audioFile: require('../audio/majungasaurus.mp3'),
   location: '2nd Floor',
   title: 'Majungasaurus',
   subtitle: 'Island Carnivore',
   blurb: `Life in Madagascar during the late Cretaceous was tough. Intermittent droughts and floods left a scarcity of resources for the inhabitants of the island. To overcome these adversities, *Majungasaurus* (muh-JUNG-uh-sore-iss) evolved to have an edge in strength and power over its prey.`,
   fullText: `The *Majungasaurus* is an abelisaur from the late Cretaceous period, about 66 to 70 million years ago. It is named for the Mahajanga province of Madagascar, where it was discovered. It weighed about 2,400 lbs and was 20-23 feet long. *Majungasaurus* had a single small horn on top of its head. This horn had a hollow cavity inside, so it was not likely used in combat. Our best guess is that it was a display structure, but both males and females had these horns.
 
-*Majungasaurus* is only found in Madagascar and evolved adaptations to its island habitat. Its large head and neck were well adapted for biting and holding on as its prey struggled to get free. Also, its legs are short and stocky. This probably gave *Majungasaurus* a lot of power when taking down prey. Scientists refer to adaptations such as these as “island dwarfism”, where otherwise large creatures develop smaller body sizes due to their limited range and resources.
+*Majungasaurus* is only found in Madagascar and evolved adaptations to its island habitat. It is smaller than similar mainland dinosaurs and has an unusual hunting strategy: its large head and neck were well adapted for biting and holding on as its prey struggled to get free, rather than attacking multiple times. Also, its legs are short and stocky. This probably gave *Majungasaurus* a lot of power when taking down prey. Scientists refer to adaptations such as these as part of “island dwarfism”, where otherwise large creatures develop smaller body sizes and other traits due to their limited range and resources.
 
-*Majungasaurus*’ arms were even smaller than those of a *T. rex*. It is possible that instead of using their arms, they evolved to dedicate more muscle to their bite power and strength of their neck. Studies of growth lines in *Majungasaurus’* femur indicate that it grew more slowly than other large dinosaurs. These studies, along with evidence of cannibalism in *Majungasaurus*, suggest that Madagascar was a difficult place for a large carnivorous dinosaur to live 66 million years ago.
+*Majungasaurus’* arms were even smaller than those of a T. rex. It is possible that instead of using their arms, they evolved to dedicate more muscle to their bite power and strength of their neck. Studies of growth lines in *Majungasaurus’* femur indicate that it grew more slowly than other large dinosaurs. These studies, along with evidence of cannibalism in *Majungasaurus*, suggest that Madagascar was a difficult place for a large carnivorous dinosaur to live 66 million years ago.
 `,
   tlas: [
     {

@@ -1,17 +1,17 @@
 export default {
   heroImage: require('../images/hero/giantCell.jpg'),
   heroImageAlt:'Large, walk-in cell showing 3d representations of different parts of a cell.',
-  audioFile: require('../audio/test.m4a'),
+  audioFile: require('../audio/giantcell.mp3'),
   location: '2nd Floor',
   title: 'Giant Cell',
   subtitle: 'The Building Blocks of Life',
   blurb: `Your body has about 37 trillion cells! Cells are responsible for your physical appearance, harvesting energy from the food you eat, and a host of other specialized functions. Our Giant Cell uses audio, video, text, and three-dimensional sculpture to bring the microscopic into view. Take a closer look!`,
   fullText: `While cells are tiny, usually only visible using the aid of a microscope, they are composed of even smaller structures called organelles. Each organelle has a specific task that keeps the cell functioning properly. Our Giant Cell displays the following organelles:
 
-Mitochondrion, Golgi apparatus, cell membrane, ribosome, endoplasmic reticulum, nucleus, lysosome, and cytoskeleton.
+the Mitochondrion, the Golgi apparatus, the cell membrane, the ribosome, the endoplasmic reticulum, the nucleus, the lysosome, and the cytoskeleton. Each organelle is important.
 Visit each of them to learn more!
 
-The cell also contains DNA, which is the hereditary material. It is responsible for the way someone (or something) looks, grows, heals and maintains its health. Did you know that the sequence of building blocks of DNA (known as bases) is 99% the same in all people? Their order only differs slightly, giving us all our unique appearance!
+The cell also contains DNA, which is the hereditary material. It is responsible for the way someone (or something) looks, grows, heals and maintains its health. Did you know that the sequence of building blocks of DNA (known as bases) is 99% the same in all people? Their order only differs slightly, giving us each our unique appearance!
 `,
   tlas: [
     {
