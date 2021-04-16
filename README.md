@@ -25,3 +25,6 @@ This will create a build that is compatible with U-M's stance on Google Play dis
 expo build:ios -t archive
 
 Ensure that you have: the necessary distribution certificate and password, the provisioning profile, and the APNs AuthKey. Use Team "The University of Michigan - Company/Organization". You will need App Manager status for the UMMNH app.
+
+## Analytics
+You should be able to request analytics reports from UMOTT. We have not explored this yet, but umott.mobile@umich.edu should be able to help with this.
